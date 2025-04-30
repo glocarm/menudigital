@@ -1,0 +1,381 @@
+#root,
+html {
+    height: 100dvh;
+    box-sizing: border-box;
+}
+
+@media (min-width: 576px) {
+    #root {
+        width: 400px;
+        margin: auto;
+    }
+
+    .texto-ajustado {
+        font-size: 20px; /* Ajusta el tamaño de fuente */
+        line-height: 1.2; /* Controla la altura de línea para que no haya demasiado espacio */
+        letter-spacing: -0.5px; /* Reduce el espacio entre letras para ajustarlas mejor */
+        text-align: justify; /* Justifica el texto para que ocupe todo el línea y quede más ajustado */
+        word-wrap: break-word; /* Permite que las palabras largas se dividan y ajusten */
+        max-width: 100%; /* Para que no pase del contenedor */
+        overflow-wrap: break-word;
+    }
+    .portada1 {
+        width: 380px;
+        height: 250px;
+        position: relative;
+    }
+    .img_card{
+        width: 200px;
+        height: 100px;
+        padding: 10px;
+        border-radius: 360px;
+    }
+    .card_local {
+        position: absolute;
+        display: flex;
+        width: 400px;
+        height: 100px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        top: 150px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 8;
+        background-color: #f5eded;
+        opacity: 0.5;
+        margin-left: 10px;
+    }
+}
+
+@media (min-width: 900px) {
+    #root1 {
+        width: 900px;
+        margin: auto;
+    }
+    .portada {
+        width: 880px;
+        height: 250px;
+        position: relative;
+    }
+    .img_card{
+        width: 200px;
+        height: 100px;
+        padding: 10px;
+        border-radius: 360px;
+    }
+    .card_local2 {
+        position: absolute;
+        display: flex;
+        width: 850px;
+        height: 100px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        top: 150px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 8;
+        background-color: #f5eded;
+        opacity: 0.5;
+        margin-left: 10px;
+    }
+}
+body {
+    overflow-x: hidden;
+    background-color: #000 !important;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h3{
+    text-align: center;
+    color:#353333;
+}
+
+header img{
+    width: 400px;
+    height: 250px;
+    position: relative;
+}
+
+
+.info-local {
+    padding: 10px;
+    background-color: #f1a1a1;
+    
+}
+
+.img_card{
+    width: 90px;
+    height: 90px;
+    padding: 10px;
+    border-radius: 360px;
+}
+.card_local {
+    position: absolute;
+    display: flex;
+    width: 380px;
+    height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    top: 160px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 8;
+    background-color: #f5eded;
+    opacity: 0.5;
+    margin-left: 0px;
+}
+
+.btn_horario{
+    border: none;
+    background-color: #f1a1a1;
+    text-decoration: solid;
+}
+.horarios{
+    margin-top: auto;
+    color: rgb(27, 94, 6);
+    font-size: 15px;
+
+
+}
+.icon_red{
+    width: 40px;
+    height: 40px;
+    margin-top: 40px;
+}
+.redes  {
+    margin-right: 10px;
+    padding: 20px;
+}
+
+.ubicacion{
+    margin-top: auto;
+    color: rgb(27, 94, 6);
+    font-size: 15px;
+}
+.map-link {
+    color: rgb(15, 15, 15);
+    padding: auto;
+    text-align: center;
+    display: inline-block;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    height: 200px;
+}
+
+.togg{
+    background-color: #f07676;
+}
+.filter-btn {
+    background-color: #f3f5f3;
+    color: rgb(16, 16, 16);
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    margin-top: 10px;
+    border:#f27171 solid 2px;
+    border-radius: 45px;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 15px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Acordeón */
+.menu-section {
+    padding: 10px;
+    margin:auto;
+    width: 400px;
+}
+.accordion {
+    cursor: pointer;
+    padding: 10px;
+    outline: none;
+    border: none;
+    background-color: #fadede;
+    transition: 0.4s;
+}
+
+.accordion h4 {
+    background-color: #e64444;
+    color: white;
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.panel {
+    display: none;
+    padding: 10px;
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.product-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+.product-info h5 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.product-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.product-info .price {
+    font-size: 15px;
+    color: #000;
+    font-weight: bold;
+}
+
+.product-info .label {
+    display: inline-block;
+    padding: 3px 5px;
+    background-color: #d65858;
+    color: white;
+    font-size: 12px;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+.button-container {
+    display: inline-flex;
+  }
+.button-container a {
+    display: inline-flex;
+    margin-right: 5px; /* Espacio entre los botones */
+  }
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f7f2f5;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #eff2f4;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
+}
+
+
+.form-group label {
+    width: 150px; /* Ancho fijo para las etiquetas */
+    margin-right: 10px;
+    font-weight: bold;
+  }
+
+  .form-group input {
+    flex: 1; /* Ocupa el resto del espacio */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-actions {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .form-actions input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .form-actions input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+
+.ingresar{
+    margin: 0 10px;
+   
+}
+.thead, tr, td, th, thead{
+  border: #e64444 solid 1px;
+}
+.iniciosesion{
+    padding-left: 130px;
+    margin-bottom: 10px;
+}
+.botonesGreen{
+    display: inline-flex;
+    justify-content:flex-end;
+    text-align: center;
+    width:  100%;
+}
+.btn-danger{
+    border: none;
+    background-color:  rgb(239, 247, 4);
+}

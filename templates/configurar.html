@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/static/style.css" />
+    <title>Menú del Bar</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body id="root1">
+    <br>  <br>  <br>  <br>
+    <section class="info-local">
+      <div class="container form-container">
+        <form method="post" action="/storeconfig" enctype="multipart/form-data">
+          <label for="txtrifemp">Rif de Empresa:</label>
+          <input type="text" name="txtrifemp" id="txtrifemp" class="form-control-file"/> <br />
+          <label for="txtnombremp">Nombre de Empresa:</label>
+          <input type="text" name="txtnombremp" id="txtnombremp" class="form-control-file"/> <br />
+          <label for="txtdescripemp">Descripción de Empresa:</label>
+          <input type="text" name="txtdescripemp" id="txtdescripemp" class="form-control-file"/><br />
+          <label for="txtdireccemp">Dirección de Empresa:</label>
+          <input type="text" name="txtdireccemp" id="txtdireccemp" class="form-control-file"/><br />
+          <label for="txthorarioemp">Horario de Empresa:</label>
+          <input type="text" name="txthorarioemp" id="txthorarioemp" class="form-control-file"/><br />
+          <label for="txtlogoemp">Logo de Empresa:</label>
+          <input type="file" name="txtlogoemp" id="txtlogoemp" class="form-control-file"/><br />
+          <label for="txtportadaemp">Imagen Portada:</label>
+          <input type="file" name="txtportadaemp" id="txtportadaemp" class="form-control-file"/><br />
+          <label for="txtmapa">Mapa:</label>
+          <input type="text" name="txtmapa" id="txtmapa" class="form-control-file"/><br />
+          <br />
+          <input type="submit" value="Agregar" />
+        </form>
+      </div>
+    </section>
+   
+  </body>
+</html>
