@@ -15,17 +15,17 @@ app.config['IMG_FOLDER'] = os.path.join(app.config['STATIC_FOLDER'], 'images')
 #--------------------------------------------------------------------
 # GUARDAMOS LA RUTA DE LA CARPETA uploads EN LA APP
 #--------------------------------------------------------------------
-CARPETA= os.path.join('uploads')
-app.config['CARPETA']=CARPETA
+#CARPETA= os.path.join('uploads')
+#app.config['CARPETA']=CARPETA
 
 #--------------------------------------------------------------------
 # Generamos el acceso a la carpeta fotos. 
 # El método fotos que creamos nos dirige a la carpeta (variable CARPETA)
 # y nos muestra la foto guardada en la variable fotomenu.
 #--------------------------------------------------------------------
-@app.route('/uploads/<fotomenu>')
-def uploads(fotomenu):
- return send_from_directory(app.config['CARPETA'], fotomenu)
+#@app.route('/uploads/<fotomenu>')
+#def uploads(fotomenu):
+ #return send_from_directory(app.config['CARPETA'], fotomenu)
 
 #--------------------------------------------------------------------
 # INICIAR SESION EN LA VISTA DEL MENU
@@ -99,25 +99,25 @@ def indexAdmin():
 #--------------------------------------------------------------------
 #  MENU CLIENTE
 #--------------------------------------------------------------------
-@app.route('/menuc') 
-def cliente():
-    conn = obtener_conexion()
-    if conn.is_connected(): 
-        print("Conexión exitosa a la base de datos.")
-        # Consulta cada plato del menú con su categoria
-        sql = "SELECT a.*, r.nombrecat FROM menu a JOIN categoria r ON a.idcategoria = r.idcategoria;"
-        cursor = conn.cursor()
-        cursor.execute(sql)
-        db_menu = cursor.fetchall()    
-        #Consulta las categorias
-        sql = "SELECT * FROM categoria;"
-        cursor.execute(sql)
-        db_categoria = cursor.fetchall()
-        #Devolvemos código HTML para ser renderizado
-        return render_template('index.html', menu=db_menu, categoria=db_categoria,)
-    else:
-         print("Sin Conexión a la base de datos.")
-         return None
+#@app.route('/menuc') 
+#def cliente():
+ #   conn = obtener_conexion()
+ #   if conn.is_connected(): 
+ #       print("Conexión exitosa a la base de datos.")
+#        # Consulta cada plato del menú con su categoria
+#        sql = "SELECT a.*, r.nombrecat FROM menu a JOIN categoria r ON a.idcategoria = r.idcategoria;"
+ #       cursor = conn.cursor()
+ #       cursor.execute(sql)
+ #       db_menu = cursor.fetchall()    
+ ##       #Consulta las categorias
+ #       sql = "SELECT * FROM categoria;"
+ #       cursor.execute(sql)
+ #       db_categoria = cursor.fetchall()
+ #       #Devolvemos código HTML para ser renderizado
+ #       return render_template('index.html', menu=db_menu, categoria=db_categoria,)
+#    else:
+#         print("Sin Conexión a la base de datos.")
+#         return None
 
 #--------------------------------------------------------------------
 # FUNCION PARA EDITAR UN MENU
@@ -319,6 +319,6 @@ def logout():
     session.pop('user', None)
     return redirect(url_for('inicio'))
 
-    
 if __name__ == '__main__':
-        app.run(debug=True)
+    app.run()
+ 
