@@ -19,6 +19,7 @@
   </head>
 
   <body id="root">
+   
     <section class="info-local">
       {% if db_empresa %}
         <section>
@@ -45,7 +46,9 @@
         </section> 
         <!-- Dirección Local y Mapa-->
         <div class="ubicacion">
-          <h5>Dirección :{{ db_empresa[4] }}</h5>
+          <p>Dirección :{{ db_empresa[4] }}</p>
+        </div>
+        <div class="ubicacion">
           <a href="{{db_empresa[8]}}" target="_blank">Ver en el mapa</a>
         </div>
         <div class="horarios">
@@ -56,10 +59,16 @@
         </div>
       {% endif %}
       </div> 
-
       <!--Acordeón de productos -->
       <section  class="menu-section">
+        <div class="botonesGreen">
+        <div class="ingresar">
+          <a href="{{url_for('admin')}}" class="btn btn-success"
+            >Regresar</a
+          >
+        </div></div>
         <div >
+          <br>
           <h3>Categorías</h3>
           <div class="accordion">
             {% for db_categoria in categoria %}
@@ -99,7 +108,7 @@
 
     <script>
       function mostrarHorarios() {
-        alert("Lunes a Viernes: 8:00 - 18:00 Sábado: 9:00 - 14:00");
+        alert("{{db_empresa[5]}}");
       }
       function toggleAccordion(element) {
         const panel = element.nextElementSibling;

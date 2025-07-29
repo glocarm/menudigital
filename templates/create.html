@@ -80,13 +80,14 @@
       </div>
 
       <div class="container form-container">
-        <form method="post" action="/store" enctype="multipart/form-data">
+        <form method="POST" action="/store" enctype="multipart/form-data">
           Nombre del Menú:
           <input type="text" name="txtnombremenu" id="txtnombremenu" /> <br />
           Descripción del Menú:
           <input type="text" name="txtdescrimenu" id="txtdescrimenu" /><br />
           Precio del Menú:
-          <input type="text" name="txtpreciomenu" id="txtpreciomenu" /><br />
+          <input type="floatformat" name="txtpreciomenu" id="txtpreciomenu" /><br />
+          
           <label for="txturlimg">Imagen Menu:</label>
           <input type="file" name="txturlimg" id="txturlimg" class="form-control-file"/><br />
 
@@ -100,8 +101,6 @@
                 {% endfor %}
             </select>
           </div>
-
-
           <br />
           <input type="submit" value="Agregar" />
         </form>
@@ -109,7 +108,7 @@
     </section>
     <script>
       function mostrarHorarios() {
-        alert("Lunes a Viernes: 8:00 - 18:00 Sábado: 9:00 - 14:00");
+        alert("{{db_empresa[5]}}");
       }
       function toggleAccordion(element) {
         const panel = element.nextElementSibling;

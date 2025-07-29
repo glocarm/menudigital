@@ -28,64 +28,63 @@
                 src="{{ url_for('static', filename='images/'+db_empresa[6])}}"
                 class="img_card"
                 alt="Logo Resto Bar"
-              /> 
+              />
             </div>
             <div>
               <h1>{{db_empresa[2]}}</h1>
-              <h4>{{db_empresa[3]}}<h4>
+              <h4>{{db_empresa[3]}}</h4>
             </div>
           </div>
         </header>
-      </section> 
+      </section>
+
       <div>
         <!-- Dirección Local y Mapa-->
         <div class="ubicacion">
           <h5>Dirección :{{ db_empresa[4] }}</h5>
           <a href="{{db_empresa[8]}}" target="_blank">Ver en el mapa</a>
         </div>
-      </div>
-      <div class="horarios">
+        <div class="horarios">
           Abierto las 24 Horas
           <button class="btn_horario map_link" onclick="mostrarHorarios()">
             Horarios de Atención
           </button>
-      </div>
-      {% endif %}
-      <div class="botonesGreen">
-        <div class="ingresar">
-          <a href="{{url_for('configurar')}}" class="btn btn-success"
-            >Configurar Empresa</a
-          >
-        </div>		  
-        <div class="ingresar">
-          <a href="{{url_for('create')}}" class="btn btn-success"
-             >Ingresar Nuevo Menú</a
-          >
-        </div>		  
-        <div class="ingresar">
-          <a href="{{url_for('indexAdmin')}}" class="btn btn-success"
-            >Ver Menu</a
-          >
-        </div>	  
-        <div class="ingresar">
-          <a href="{{url_for('logout')}}" class="btn btn-success"
-            >Cerrar Sesión</a
-          >
-        </div>		  
-      </div>
-      <div>
+        </div>
+        {% endif %}
+        <div class="botonesGreen">
+          <div class="ingresar">
+            <a href="{{url_for('configurar')}}" class="btn btn-success"
+              >Configurar Empresa</a
+            >
+          </div>
+          <div class="ingresar">
+            <a href="{{url_for('create')}}" class="btn btn-success"
+              >Ingresar Nuevo Menú</a
+            >
+          </div>
+          <div class="ingresar">
+            <a href="{{url_for('indexAdmin')}}" class="btn btn-success"
+              >Ver Menu</a
+            >
+          </div>
+          <div class="ingresar">
+            <a href="{{url_for('logout')}}" class="btn btn-success"
+              >Cerrar Sesión</a
+            >
+          </div>
+        </div>
         <div>
-          <!-- Categorias en Botones -->
-          <!-- <button class="filter-btn">Todos</button>-->
-          {% for db_categoria in categoria %}
+          <div>
+            <!-- Categorias en Botones no botonesgreen-->
+            <button class="filter-btn" data-categoria="todos">Todos</button>
+            {% for db_categoria in categoria %}
             <button class="filter-btn" data-categoria="{{ db_categoria[1] }}">
               {{ db_categoria[1]}}
             </button>
-          {% endfor %}
+            {% endfor %}
+          </div>
         </div>
       </div>
-
-
       <section class="tablaMenu">
         <div>
           <table class="table">
@@ -102,7 +101,7 @@
             </thead>
             <tbody>
               {% for db_menu in menu %}
-              <tr data-categoria="{{ db_menu[6] }}">
+              <tr data-categoria="{{ db_menu[7] }}">
                 <td>{{db_menu[0]}}</td>
                 <td>
                   <img
@@ -134,42 +133,43 @@
             </tbody>
           </table>
         </div>
-          <script>
-            function mostrarHorarios() {
-              alert("{{db_empresa[5]}}");
-            }
-            function toggleAccordion(element) {
-              const panel = element.nextElementSibling;
-              panel.style.display =
-                panel.style.display === "block" ? "none" : "block";
-            }
-          </script>
 
-          <script>
-            document.addEventListener("DOMContentLoaded", function () {
-              const buttons = document.querySelectorAll(".filter-btn");
-              const rows = document.querySelectorAll(".tablaMenu tbody tr");
-
-              buttons.forEach((button) => {
-                button.addEventListener("click", function () {
-                  const selectedCategory = this.getAttribute("data-categoria");
-
-                  // Mostrar todas las filas si se ha seleccionado "Todos"
-                  rows.forEach((row) => {
-                    if (
-                      selectedCategory === "todos" ||
-                      row.getAttribute("data-categoria") === selectedCategory
-                    ) {
-                      row.style.display = ""; // Muestra la fila
-                    } else {
-                      row.style.display = "none"; // Oculta la fila
-                    }
-                  });
+        <script>
+          function mostrarHorarios() {
+            alert("{{db_empresa[5]}}");
+          }
+          function toggleAccordion(element) {
+            const panel = element.nextElementSibling;
+            panel.style.display =
+              panel.style.display === "block" ? "none" : "block";
+          }
+        </script>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".filter-btn");
+            const rows = document.querySelectorAll(".tablaMenu tbody tr");
+          
+            buttons.forEach((button) => {
+              button.addEventListener("click", function () {
+                const selectedCategory = this.getAttribute("data-categoria");
+          
+                rows.forEach((row) => {
+                  const rowCategory = row.getAttribute("data-categoria");
+                  if (
+                    selectedCategory === "todos" ||
+                    rowCategory === selectedCategory
+                  ) {
+                    row.style.display = ""; // Mostrar fila
+                  } else {
+                    row.style.display = "none"; // Ocultar fila
+                  }
                 });
               });
             });
-          </script>
+          });
+          
+        </script>
       </section>
-    </section>  
+    </section>
   </body>
 </html>
